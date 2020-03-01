@@ -6,13 +6,13 @@ A kōan 公案 (pinyin: gōng'àn) is a story, question, or statement, which is 
 
 Inspired by [ruby koans](http://rubykoans.com/) you may learn the syntax and practices of C through a series of lessons in the form of [Unit tests](https://en.wikipedia.org/wiki/Unit_testing). These preprepared tests are all failing, by going through each one and repairing them to make them pass you will learn a small component of the C programming language.
 
-The test are written in the [Criterion](https://github.com/Snaipe/Criterion) unit testing library.
+The test are written in the [cmocka](https://cmocka.org/) unit testing library.
 
 ## How to run
 
 ### On Linux/OSX:
 
-1. Install [Criterion](https://github.com/Snaipe/Criterion)
+1. Install [cmocka](https://cmocka.org/)
 2. run `make clean all`
 3. run `bin/c_koans`
 4. Start fixing!

@@ -13,10 +13,10 @@ INC := -I $(INCDIR)
 
 EXEC := c_koans
 
-STD := gnu11
-CFLAGS := -std=$(STD) -Wall -Werror -Wno-unused-function -Wno-nonnull
+STD := c99
+CFLAGS := -std=$(STD) -Wall -Wextra -pedantic -Wno-unused-function -Wno-nonnull
 
-CRITERION := -lcriterion
+CMOCKA := -lcmocka
 
 .PHONY: setup all clean
 
@@ -29,7 +29,7 @@ setup:
 	@mkdir -p bin build
 
 $(EXEC): $(ALL_OBJF)
-	$(CC) $(CFLAGS) $(INC) $^ -o $(BINDIR)/$@ $(CRITERION)
+	$(CC) $(CFLAGS) $(INC) $^ -o $(BINDIR)/$@ $(CMOCKA)
 
 $(BLDDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(INC) $< -c -o $@
