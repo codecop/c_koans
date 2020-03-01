@@ -17,6 +17,8 @@ int fib(int n)
 
 static void about_functions_function_basics(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Functions are pieces of modularized code. They are equivalent in purpose
         to methods in Java. Since there are no Classes in C, C functions can be
@@ -44,6 +46,8 @@ int function_prototype(int, int);
 
 static void about_functions_function_prototypes(void** state)
 {
+     (void)state; /* unused */
+
     /* We will test if our function can be called since it has been declared */
     cr_assert_eq(
         function_prototype(1, 2), TODO, "What does the function return?");
@@ -54,6 +58,8 @@ int function_prototype(int i, int j) { return i + j; }
 
 static void about_functions_function_scope_and_vars(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Functions are the main scope of the C language. The location of
         variables are determined by their declaration location in reference to

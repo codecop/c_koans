@@ -2,6 +2,7 @@
 
 static void about_dataclasses_unions(void** state)
 {
+     (void)state; /* unused */
 
     /*
         Unions are a data type that offers one variable to be able to
@@ -41,6 +42,8 @@ static void about_dataclasses_unions(void** state)
 
 static void about_dataclasses_enums(void** state)
 {
+    (void)state; /* unused */
+
     /*
         enums offer a list of constant integer values with an optional
         identifier. The list of the enums may be assigned values, assigned no
@@ -96,6 +99,8 @@ static void about_dataclasses_enums(void** state)
 
 static void about_dataclasses_bit_fields(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Sometimes it is necessary to pack multiple fields into a single word,
         half, or byte. This is where bit fields come in. A bit field is denoted
@@ -156,6 +161,8 @@ static void about_dataclasses_bit_fields(void** state)
 
 static void about_dataclasses_about_const(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The const qualifier is a very useful tool for avoiding runtime errors
         by defining things that should not be modified.

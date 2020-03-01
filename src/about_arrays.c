@@ -10,6 +10,8 @@ void func(int *array)
 
 static void about_arrays_what_is_an_array(void** state)
 {
+     (void)state; /* unused */
+
     /* Here is a declaration of 5 integers */
     int array[5];
     array[0] = 1;

@@ -11,6 +11,8 @@ int *malloc_func()
 
 static void about_malloc_malloc_intro(void** state)
 {
+    (void)state; /* unused */
+
     /*
         In C, there are 2 ways to allocate space for a variable:
         1. int i = 5; This allocates sizeof(int) bytes on the stack.
@@ -45,6 +47,8 @@ static void about_malloc_malloc_intro(void** state)
 
 static void about_malloc_free(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Dynamic memory in C is manually managed.
 
@@ -81,6 +85,8 @@ static void about_malloc_free(void** state)
 
 static void about_malloc_calloc(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The next function in the alloc family is calloc. Calloc does the same
         operation as malloc, but it initialized the memory to 0, meaning that
@@ -102,6 +108,8 @@ static void about_malloc_calloc(void** state)
 
 static void about_malloc_realloc(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The final function in the family of alloc functions is realloc.
 

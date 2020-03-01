@@ -18,6 +18,8 @@
 
 static void about_preprocessor_macro_definitions(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The C Preprocessor allows us to 'define' things called Macros.
         Macros in C operate exactly as you remember them in MIPS. The
@@ -69,6 +71,8 @@ static void about_preprocessor_macro_definitions(void** state)
 
 static void about_preprocessor_conditional_defines(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Conditional logic can be done with a few different directives.
         These directives include 'if', 'elif', 'ifdef', ifndef' and 'else'
@@ -96,6 +100,8 @@ static void about_preprocessor_conditional_defines(void** state)
 
 static void about_preprocessor_stringizing(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The Preprocessor has a functionality known as "Stringizing"
         What stringizing does is replace a macro argument with a string literal.
@@ -116,6 +122,8 @@ static void about_preprocessor_stringizing(void** state)
 
 static void about_preprocessor_macro_concatination(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Concatenation is denoted by the use of a '##' inside of a macro.
         When the macro is expanded, it will combine both tokens on each side of
@@ -134,6 +142,8 @@ static void about_preprocessor_macro_concatination(void** state)
 
 static void about_preprocessor_variadic_macros(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The Preprocessor has the power to take advantage of variable length
         arguments

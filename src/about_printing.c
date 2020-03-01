@@ -12,6 +12,8 @@
 
 static void about_printing_basic_printing(void** state)
 {
+    (void)state; /* unused */
+
     /*
         The most basic printing mechanisms are provided by the functions
 	putchar and puts.
@@ -40,6 +42,8 @@ static void about_printing_basic_printing(void** state)
 
 static void about_io_printf(void** state)
 {
+    (void)state; /* unused */
+
     /*
         This koan will go over the most common function used for output in C:
 	printf.
