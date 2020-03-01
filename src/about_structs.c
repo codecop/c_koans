@@ -15,6 +15,8 @@ struct point2d {
 
 static void about_structs_struct_basics(void** state)
 {
+     (void)state; /* unused */
+
     /* Structs are initialized very simply. */
     /* We have to specify that the 'point2d' type is a struct */
     struct point2d p1;
@@ -83,6 +85,8 @@ static void about_structs_struct_basics(void** state)
 
 static void about_structs_structs_and_functions_and_pointers(void** state)
 {
+     (void)state; /* unused */
+
     /*
         A struct can be passed as a variable to a function, just like any other
         type
@@ -114,6 +118,8 @@ static void about_structs_structs_and_functions_and_pointers(void** state)
 
 static void about_structs_arrays_of_structs(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Arrays of structures operate as would expect, when declaring the size,
         it accounts for the size of the struct.
@@ -165,6 +171,8 @@ static void about_structs_arrays_of_structs(void** state)
 
 static void about_structs_self_referential_structs(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Structs can be self referential, and have pointers to structs of the
         same struct that it is as members of the struct.

@@ -23,6 +23,8 @@ struct linked_list {
 
 static void about_linked_lists_linked_list_basics(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Here we declare two linked_list structs.
         `head` has a pointer to `list_node`.
@@ -47,6 +49,8 @@ static void about_linked_lists_linked_list_basics(void** state)
 
 static void about_linked_lists_traversing_linked_list(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Here we declare 5 linked_list structs with nodes_i pointing to nodes_i-1
     */
@@ -99,6 +103,8 @@ struct linked_list *insert(struct linked_list *head, int val)
 
 static void about_linked_lists_insert_into_linked_list(void** state)
 {
+    (void)state; /* unused */
+
     struct linked_list head = { 1 };
 
     /*
@@ -136,6 +142,8 @@ struct linked_list *delete (struct linked_list *head, int val)
 
 static void about_linked_lists_delete_from_linked_list(void** state)
 {
+    (void)state; /* unused */
+
     struct linked_list nodes[5] = { { 1, NULL }, { 2, &nodes[0] },
         { 3, &nodes[1] }, { 4, &nodes[2] }, { 5, &nodes[3] } };
 
@@ -151,6 +159,8 @@ static void about_linked_lists_delete_from_linked_list(void** state)
 
 static void about_linked_lists_helpful_pointers(void** state)
 {
+    (void)state; /* unused */
+
     /* It is useful to define pointers to the start and end of a linked list. */
     struct list_node {
         int data;
@@ -181,6 +191,8 @@ static void about_linked_lists_helpful_pointers(void** state)
 
 static void about_linked_lists_doubly_linked_list(void** state)
 {
+    (void)state; /* unused */
+
     /*
         Doubly linked list is similar to a regular linked list except each node
         has a pointer to the previous node in the list.

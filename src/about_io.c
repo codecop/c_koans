@@ -15,6 +15,8 @@
 
 static void about_io_streams(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Before we can go into detail about stdio we must discuss the
 	foundation of the library, the three streams that are provided:
@@ -59,6 +61,8 @@ static void about_io_streams(void** state)
 
 static void about_io_using_streams(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Now that we are familiar with the three streams given to us, we can go
 	over the functions that utilize streams.
@@ -90,6 +94,8 @@ static void about_io_using_streams(void** state)
 
 static void about_io_file_io(void** state)
 {
+     (void)state; /* unused */
+
     /*
         The standard io library, <stdio.h> provides a FILE type for standard io
         usages. Any pointer of type FILE* is referred to as a "stream." So, this
@@ -120,6 +126,8 @@ static void about_io_file_io(void** state)
 
 static void about_io_buffered_io(void** state)
 {
+     (void)state; /* unused */
+
     /*
         One of the most important aspects of the standard io library is that
 	it is buffered. What does this mean? It means that every write is not

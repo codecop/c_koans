@@ -9,6 +9,8 @@
 
 static void about_strings_what_is_string(void** state)
 {
+    (void)state; /* unused */
+
     /* Here is a declaration of String "CSE101 is awesome" */
     char *string = "CSE101 is awesome";
     /*
@@ -32,6 +34,8 @@ static void about_strings_what_is_string(void** state)
 
 static void about_strings_reference_characters(void** state)
 {
+    (void)state; /* unused */
+
     /*
         A String is just like an array of chars.
         All ways of dereferencing arrays will work with strings
@@ -58,6 +62,8 @@ static void about_strings_reference_characters(void** state)
 
 static void about_strings_assignment(void** state)
 {
+    (void)state; /* unused */
+
     /*
         char* string = "CSE 101", string declared are immutable (read only)
         trying to change would raise in compiler error but
@@ -76,6 +82,8 @@ static void about_strings_assignment(void** state)
 
 static void about_strings_declaration(void** state)
 {
+    (void)state; /* unused */
+
     /* DOES NOT automatically add terminating character at the end */
     char string1[] = { 'C', 'S', 'E', '1', '0', '1' };
     char string2[] = "CSE101"; /* Adds terminating character at the end */
@@ -87,6 +95,8 @@ static void about_strings_declaration(void** state)
 
 static void about_strings_sizeof_strlen(void** state)
 {
+    (void)state; /* unused */
+
     /*
         strlen : Returns the length of the C string str. Does not include '\0'
         strlen("CSE 101") would return 7
@@ -107,6 +117,8 @@ static void about_strings_sizeof_strlen(void** state)
 
 static void about_strings_copy(void** state)
 {
+    (void)state; /* unused */
+
     char string1[] = "CSE 101";
 
     /* Only copies pointer, string2 and string1 now reference the same memory */
@@ -136,6 +148,8 @@ void test_a_string_length_with_sizeof(char *string)
 
 static void about_strings_function_paramater(void** state)
 {
+    (void)state; /* unused */
+
     /*
         sizeof can give different results when strings are passed in as
         parameters,
@@ -148,6 +162,8 @@ static void about_strings_function_paramater(void** state)
 
 static void about_strings_formating_strings(void** state)
 {
+     (void)state; /* unused */
+
     char *string1 = malloc(12);
     sprintf(string1, "%s %s!", "CSE", "101!");
 

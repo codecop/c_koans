@@ -3,6 +3,8 @@
 
 static void about_pointers_pointers_and_addresses(void** state)
 {
+    (void)state; /* unused */
+
     /*
      * Pointers are the trademark of the C language, and the largest mental
      * block of programmers of languages where they do not explicitly exist.
@@ -49,6 +51,8 @@ static void about_pointers_pointers_and_addresses(void** state)
 
 static void about_pointers_pointers_as_function_arguments(void** state)
 {
+    (void)state; /* unused */
+
     /*
      * Since functions in C are call-by-value, there is seemingly no way to
      * change a value of an argument inside of the function. This is where
@@ -63,6 +67,8 @@ static void about_pointers_pointers_as_function_arguments(void** state)
 
 static void about_pointers_pointers_arrays_and_arithmetic(void** state)
 {
+    (void)state; /* unused */
+
     /*
      * In C, pointers and arrays are intertwined.
      * Since we have already learned a little bit about arrays, we will focus
@@ -102,6 +108,8 @@ static void about_pointers_pointers_arrays_and_arithmetic(void** state)
 
 static void about_pointers_function_pointers(void** state)
 {
+    (void)state; /* unused */
+
     /* Declaration of an array of strings and the sorted equivalent */
 
     const size_t array_size = 5;

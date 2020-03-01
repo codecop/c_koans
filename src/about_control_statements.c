@@ -9,6 +9,8 @@
 
 static void about_control_statements_ifs(void** state)
 {
+     (void)state; /* unused */
+
     /*
         The if statement is the most familiar: the statement inside of the
         parenthesis is evaluated.
@@ -39,6 +41,8 @@ static void about_control_statements_ifs(void** state)
 
 static void about_control_statements_switch_block(void** state)
 {
+     (void)state; /* unused */
+
     /*
         The switch is also familiar, and similar to the else-if.
         The difference is that a switch block will check a value only
@@ -64,6 +68,8 @@ static void about_control_statements_switch_block(void** state)
 
 static void about_control_statements_loops(void** state)
 {
+     (void)state; /* unused */
+
     /*
         C possesses three types of loops. The first of which is the 'while'
         The while loop will execute everything inside of its block until the
@@ -123,6 +129,8 @@ static void about_control_statements_loops(void** state)
 
 static void about_control_statements_goto_and_labels(void** state)
 {
+     (void)state; /* unused */
+
     /*
         The goto at the assembly level is an
         unconditional branch, 'j' or 'b' from MIPS.

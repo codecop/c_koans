@@ -4,6 +4,8 @@
 
 static void about_basics_intro(void** state)
 {
+     (void)state; /* unused */
+
     /*
         Welcome to the C language
         To begin let's understand the framework in which you will be fixing each
@@ -41,6 +43,8 @@ static void about_basics_intro(void** state)
 
 static void about_basics_variables(void** state)
 {
+     (void)state; /* unused */
+
     /*
         If you've had some experience with Java then C won't seem too foreign in
         terms of syntax
