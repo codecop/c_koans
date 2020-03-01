@@ -1,7 +1,7 @@
 #include "c_koans.h"
 #include <string.h>
 
-Test(about_pointers, pointers_and_addresses)
+static void about_pointers_pointers_and_addresses(void** state)
 {
     /*
      * Pointers are the trademark of the C language, and the largest mental
@@ -47,7 +47,7 @@ Test(about_pointers, pointers_and_addresses)
     cr_assert_eq(sizeof(n), TODO, "What type is n?");
 }
 
-Test(about_pointers, pointers_as_function_arguments)
+static void about_pointers_pointers_as_function_arguments(void** state)
 {
     /*
      * Since functions in C are call-by-value, there is seemingly no way to
@@ -61,7 +61,7 @@ Test(about_pointers, pointers_as_function_arguments)
     cr_assert_eq(i, TODO, "What is the new value of i?");
 }
 
-Test(about_pointers, pointers_arrays_and_arithmetic)
+static void about_pointers_pointers_arrays_and_arithmetic(void** state)
 {
     /*
      * In C, pointers and arrays are intertwined.
@@ -100,7 +100,7 @@ Test(about_pointers, pointers_arrays_and_arithmetic)
         (int)(p2 - p1), TODO, "What is the number of ints difference?");
 }
 
-Test(about_pointers, function_pointers)
+static void about_pointers_function_pointers(void** state)
 {
     /* Declaration of an array of strings and the sorted equivalent */
 

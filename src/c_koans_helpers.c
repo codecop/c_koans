@@ -138,3 +138,7 @@ int make_person_better(
         or failure. On our VM they are 0 and 1 respectively.
     */
 }
+
+void cr_assert(int state, char message[], char this[]) {
+
+}

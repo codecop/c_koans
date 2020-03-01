@@ -2,14 +2,14 @@
 #include <limits.h>
 #include <stdbool.h>
 
-Test(about_basics, intro)
+static void about_basics_intro(void** state)
 {
     /*
         Welcome to the C language
         To begin let's understand the framework in which you will be fixing each
         unit test
-        This is Criterion a Testing framework. More can be read on it here:
-        http://criterion.readthedocs.io/en/stable/
+        This is cmocka a Testing framework. More can be read on it here:
+        https://cmocka.org/
 
         Tests are built on assertions, simple evaluations of truth in order to
         assess the correctness of code
@@ -33,14 +33,13 @@ Test(about_basics, intro)
         "In C there is no true, there is only not zero. true is in fact: %d",
         true);
     /*
-        Criterion has more descriptive tests that can evaluate the same thing
-        eq is short for equals
+        cmocka has more descriptive tests that can evaluate the same thing
     */
     cr_assert_eq(false, 1, "Nothing is not something");
     cr_assert_eq(true, 0, "Something is not nothing");
 }
 
-Test(about_basics, variables)
+static void about_basics_variables(void** state)
 {
     /*
         If you've had some experience with Java then C won't seem too foreign in
@@ -74,9 +73,9 @@ Test(about_basics, variables)
 
     long long ll = TODO;
 
-    cr_expect_eq(ll, 0xFF,
+    cr_assert_eq(ll, 0xFF,
         "A number literal starting with 0x will be interpreted as hexadecimal");
-    cr_expect_eq(ll, 0b11111111,
+    cr_assert_eq(ll, 0b11111111,
         "A number literal starting with 0b will be interpreted as binary");
     cr_assert_eq(ll, 0377,
         "A number literal starting with 0 will be interpreted as octal");

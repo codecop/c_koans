@@ -7,7 +7,7 @@
     Open terminal and type 'man string'
  */
 
-Test(about_strings, what_is_string)
+static void about_strings_what_is_string(void** state)
 {
     /* Here is a declaration of String "CSE101 is awesome" */
     char *string = "CSE101 is awesome";
@@ -30,7 +30,7 @@ Test(about_strings, what_is_string)
         character at offset");
 }
 
-Test(about_strings, reference_characters)
+static void about_strings_reference_characters(void** state)
 {
     /*
         A String is just like an array of chars.
@@ -56,7 +56,7 @@ Test(about_strings, reference_characters)
     cr_assert_eq(*string + 1, *(string + 1), "They are not equal");
 }
 
-Test(about_strings, assignment)
+static void about_strings_assignment(void** state)
 {
     /*
         char* string = "CSE 101", string declared are immutable (read only)
@@ -74,7 +74,7 @@ Test(about_strings, assignment)
     cr_assert_str_eq("CSE 101", string, "String declared this way are mutable");
 }
 
-Test(about_strings, declaration)
+static void about_strings_declaration(void** state)
 {
     /* DOES NOT automatically add terminating character at the end */
     char string1[] = { 'C', 'S', 'E', '1', '0', '1' };
@@ -85,7 +85,7 @@ Test(about_strings, declaration)
         0 at the end");
 }
 
-Test(about_strings, sizeof_strlen)
+static void about_strings_sizeof_strlen(void** state)
 {
     /*
         strlen : Returns the length of the C string str. Does not include '\0'
@@ -105,7 +105,7 @@ Test(about_strings, sizeof_strlen)
         string3 array not string size");
 }
 
-Test(about_strings, copy)
+static void about_strings_copy(void** state)
 {
     char string1[] = "CSE 101";
 
@@ -134,7 +134,7 @@ void test_a_string_length_with_sizeof(char *string)
         when passed into this function, always use strlen function");
 }
 
-Test(about_strings, function_paramater)
+static void about_strings_function_paramater(void** state)
 {
     /*
         sizeof can give different results when strings are passed in as
@@ -146,7 +146,7 @@ Test(about_strings, function_paramater)
     test_a_string_length_with_sizeof(string);
 }
 
-Test(about_strings, formating_strings)
+static void about_strings_formating_strings(void** state)
 {
     char *string1 = malloc(12);
     sprintf(string1, "%s %s!", "CSE", "101!");

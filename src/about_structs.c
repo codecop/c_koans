@@ -13,7 +13,7 @@ struct point2d {
     int y;
 }; /* note this semi-colon */
 
-Test(about_structs, struct_basics)
+static void about_structs_struct_basics(void** state)
 {
     /* Structs are initialized very simply. */
     /* We have to specify that the 'point2d' type is a struct */
@@ -81,7 +81,7 @@ Test(about_structs, struct_basics)
         "What is the value of x, after all the struct access?");
 }
 
-Test(about_structs, structs_and_functions_and_pointers)
+static void about_structs_structs_and_functions_and_pointers(void** state)
 {
     /*
         A struct can be passed as a variable to a function, just like any other
@@ -112,7 +112,7 @@ Test(about_structs, structs_and_functions_and_pointers)
         person2.bday.month, TODO, "What is the month for this person?");
 }
 
-Test(about_structs, arrays_of_structs)
+static void about_structs_arrays_of_structs(void** state)
 {
     /*
         Arrays of structures operate as would expect, when declaring the size,
@@ -163,7 +163,7 @@ Test(about_structs, arrays_of_structs)
         sizeof(struct s3), TODO, "What is the size of the packed struct?");
 }
 
-Test(about_structs, self_referential_structs)
+static void about_structs_self_referential_structs(void** state)
 {
     /*
         Structs can be self referential, and have pointers to structs of the
