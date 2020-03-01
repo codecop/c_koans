@@ -9,7 +9,7 @@ int *malloc_func()
     return return_ptr;
 }
 
-Test(about_malloc, malloc_intro)
+static void about_malloc_malloc_intro(void** state)
 {
     /*
         In C, there are 2 ways to allocate space for a variable:
@@ -43,7 +43,7 @@ Test(about_malloc, malloc_intro)
     cr_assert_eq(*return_ptr, TODO, "What is the value of return_ptr on the heap?");
 }
 
-Test(about_malloc, free)
+static void about_malloc_free(void** state)
 {
     /*
         Dynamic memory in C is manually managed.
@@ -79,7 +79,7 @@ Test(about_malloc, free)
         dereference ip?");
 }
 
-Test(about_malloc, calloc)
+static void about_malloc_calloc(void** state)
 {
     /*
         The next function in the alloc family is calloc. Calloc does the same
@@ -100,7 +100,7 @@ Test(about_malloc, calloc)
     cr_assert_eq(strlen(s), TODO, "What is the new length?");
 }
 
-Test(about_malloc, realloc)
+static void about_malloc_realloc(void** state)
 {
     /*
         The final function in the family of alloc functions is realloc.

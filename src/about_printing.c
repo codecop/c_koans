@@ -10,7 +10,7 @@
     A more in-depth IO koan will be presented in about_io.
 */
 
-Test(about_printing, basic_printing)
+static void about_printing_basic_printing(void** state)
 {
     /*
         The most basic printing mechanisms are provided by the functions
@@ -38,7 +38,7 @@ Test(about_printing, basic_printing)
     cr_assert_file_contents_eq_str(stdout, "Foo\n\n");
 }
 
-Test(about_io, printf)
+static void about_io_printf(void** state)
 {
     /*
         This koan will go over the most common function used for output in C:

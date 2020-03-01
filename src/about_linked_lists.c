@@ -21,7 +21,7 @@ struct linked_list {
     struct linked_list *next;
 };
 
-Test(about_linked_lists, linked_list_basics)
+static void about_linked_lists_linked_list_basics(void** state)
 {
     /*
         Here we declare two linked_list structs.
@@ -45,7 +45,7 @@ Test(about_linked_lists, linked_list_basics)
     cr_assert_eq(sizeof(head), TODO, "How much memory does `head` occupy?");
 }
 
-Test(about_linked_lists, traversing_linked_list)
+static void about_linked_lists_traversing_linked_list(void** state)
 {
     /*
         Here we declare 5 linked_list structs with nodes_i pointing to nodes_i-1
@@ -97,7 +97,7 @@ struct linked_list *insert(struct linked_list *head, int val)
     return new_node;
 }
 
-Test(about_linked_lists, insert_into_linked_list)
+static void about_linked_lists_insert_into_linked_list(void** state)
 {
     struct linked_list head = { 1 };
 
@@ -134,7 +134,7 @@ struct linked_list *delete (struct linked_list *head, int val)
     return i;
 }
 
-Test(about_linked_lists, delete_from_linked_list)
+static void about_linked_lists_delete_from_linked_list(void** state)
 {
     struct linked_list nodes[5] = { { 1, NULL }, { 2, &nodes[0] },
         { 3, &nodes[1] }, { 4, &nodes[2] }, { 5, &nodes[3] } };
@@ -149,7 +149,7 @@ Test(about_linked_lists, delete_from_linked_list)
         nodes[3].next->data, TODO, "What data is contained in that node?");
 }
 
-Test(about_linked_lists, helpful_pointers)
+static void about_linked_lists_helpful_pointers(void** state)
 {
     /* It is useful to define pointers to the start and end of a linked list. */
     struct list_node {
@@ -179,7 +179,7 @@ Test(about_linked_lists, helpful_pointers)
         list.tail->data, TODO, "What is the data contained in the tail?");
 }
 
-Test(about_linked_lists, doubly_linked_list)
+static void about_linked_lists_doubly_linked_list(void** state)
 {
     /*
         Doubly linked list is similar to a regular linked list except each node

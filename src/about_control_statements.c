@@ -7,7 +7,7 @@
     familiar to proficient Java programmers like ourselves...
  */
 
-Test(about_control_statements, ifs)
+static void about_control_statements_ifs(void** state)
 {
     /*
         The if statement is the most familiar: the statement inside of the
@@ -37,7 +37,7 @@ Test(about_control_statements, ifs)
     cr_assert_eq(var, TODO, "Determine the control flow for this block, too");
 }
 
-Test(about_control_statements, switch_block)
+static void about_control_statements_switch_block(void** state)
 {
     /*
         The switch is also familiar, and similar to the else-if.
@@ -62,7 +62,7 @@ Test(about_control_statements, switch_block)
     cr_assert_eq(var, TODO, "Determine the control flow for this block.");
 }
 
-Test(about_control_statements, loops)
+static void about_control_statements_loops(void** state)
 {
     /*
         C possesses three types of loops. The first of which is the 'while'
@@ -121,7 +121,7 @@ Test(about_control_statements, loops)
         var, TODO, "Determine the result of the do-while loop's execution");
 }
 
-Test(about_control_statements, goto_and_labels)
+static void about_control_statements_goto_and_labels(void** state)
 {
     /*
         The goto at the assembly level is an

@@ -16,7 +16,7 @@
 
 #define MAX(a, b) (a)
 
-Test(about_preprocessor, macro_definitions)
+static void about_preprocessor_macro_definitions(void** state)
 {
     /*
         The C Preprocessor allows us to 'define' things called Macros.
@@ -67,7 +67,7 @@ Test(about_preprocessor, macro_definitions)
 
 #define MOVE_ME
 
-Test(about_preprocessor, conditional_defines)
+static void about_preprocessor_conditional_defines(void** state)
 {
     /*
         Conditional logic can be done with a few different directives.
@@ -94,7 +94,7 @@ Test(about_preprocessor, conditional_defines)
 
 #define STRINGIZE(arg) #arg
 
-Test(about_preprocessor, stringizing)
+static void about_preprocessor_stringizing(void** state)
 {
     /*
         The Preprocessor has a functionality known as "Stringizing"
@@ -114,7 +114,7 @@ Test(about_preprocessor, stringizing)
 
 #define THIS_IS(b) ALWAYS_##b
 
-Test(about_preprocessor, macro_concatination)
+static void about_preprocessor_macro_concatination(void** state)
 {
     /*
         Concatenation is denoted by the use of a '##' inside of a macro.
@@ -132,7 +132,7 @@ Test(about_preprocessor, macro_concatination)
 
 #define VARIADIC_ARGUMENTS(...) #__VA_ARGS__
 
-Test(about_preprocessor, variadic_macros)
+static void about_preprocessor_variadic_macros(void** state)
 {
     /*
         The Preprocessor has the power to take advantage of variable length

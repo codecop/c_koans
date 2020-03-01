@@ -8,7 +8,7 @@ void func(int *array)
         "when passed into this function");
 }
 
-Test(about_arrays, what_is_an_array)
+static void about_arrays_what_is_an_array(void** state)
 {
     /* Here is a declaration of 5 integers */
     int array[5];

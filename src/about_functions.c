@@ -15,7 +15,7 @@ int fib(int n)
         return fib(n - 1) + fib(n - 2);
 }
 
-Test(about_functions, function_basics)
+static void about_functions_function_basics(void** state)
 {
     /*
         Functions are pieces of modularized code. They are equivalent in purpose
@@ -42,7 +42,7 @@ Test(about_functions, function_basics)
  */
 int function_prototype(int, int);
 
-Test(about_functions, function_prototypes)
+static void about_functions_function_prototypes(void** state)
 {
     /* We will test if our function can be called since it has been declared */
     cr_assert_eq(
@@ -52,7 +52,7 @@ Test(about_functions, function_prototypes)
 /* Here is the implementation for our prototype. */
 int function_prototype(int i, int j) { return i + j; }
 
-Test(about_functions, function_scope_and_vars)
+static void about_functions_function_scope_and_vars(void** state)
 {
     /*
         Functions are the main scope of the C language. The location of

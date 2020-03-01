@@ -13,7 +13,7 @@
     It will be referred to as stdio, after the header file <stdio.h>
  */
 
-Test(about_io, streams)
+static void about_io_streams(void** state)
 {
     /*
         Before we can go into detail about stdio we must discuss the
@@ -57,7 +57,7 @@ Test(about_io, streams)
 		     "The output stream for error messages is...");
 }
 
-Test(about_io, using_streams)
+static void about_io_using_streams(void** state)
 {
     /*
         Now that we are familiar with the three streams given to us, we can go
@@ -88,7 +88,7 @@ Test(about_io, using_streams)
     */
 }
 
-Test(about_io, file_io)
+static void about_io_file_io(void** state)
 {
     /*
         The standard io library, <stdio.h> provides a FILE type for standard io
@@ -118,7 +118,7 @@ Test(about_io, file_io)
     cr_assert_str_eq(buf, TODO_S, "view rsrc/file.txt to see what buf should be");
 }
 
-Test(about_io, buffered_io)
+static void about_io_buffered_io(void** state)
 {
     /*
         One of the most important aspects of the standard io library is that

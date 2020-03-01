@@ -1,6 +1,6 @@
 #include "c_koans.h"
 
-Test(about_dataclasses, unions)
+static void about_dataclasses_unions(void** state)
 {
 
     /*
@@ -39,7 +39,7 @@ Test(about_dataclasses, unions)
         "interpreted as a short?");
 }
 
-Test(about_dataclasses, enums)
+static void about_dataclasses_enums(void** state)
 {
     /*
         enums offer a list of constant integer values with an optional
@@ -94,7 +94,7 @@ Test(about_dataclasses, enums)
     cr_assert_eq(mask_four, TODO, "What is the value of FOUR in this enum?");
 }
 
-Test(about_dataclasses, bit_fields)
+static void about_dataclasses_bit_fields(void** state)
 {
     /*
         Sometimes it is necessary to pack multiple fields into a single word,
@@ -154,7 +154,7 @@ Test(about_dataclasses, bit_fields)
         "struct?");
 }
 
-Test(about_dataclasses, about_const)
+static void about_dataclasses_about_const(void** state)
 {
     /*
         The const qualifier is a very useful tool for avoiding runtime errors
