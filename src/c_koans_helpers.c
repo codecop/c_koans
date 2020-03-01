@@ -137,11 +137,14 @@ int make_person_better(
     */
 }
 
-void cr_assert(int state, ...) /* char *message and opts */ {
+void cr_assert(int state, char *message, ...) /* opts */ {
+    va_list valist;
+    va_start(valist, state);
 
+    va_end(valist);
 }
 
-void cr_assert_eq(int expected, int actual, ...) /* char *message */ {
+void cr_assert_eq(int expected, int actual, char *message) {
 
 }
 
@@ -154,7 +157,7 @@ void cr_assert_float_eq(
 {
 }
 
-void cr_assert_null(void *expected, ...) /* char *message and opts */ {
+void cr_assert_null(void *expected, char *message, ...) /* opts */ {
 
 }
 
