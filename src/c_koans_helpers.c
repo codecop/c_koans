@@ -139,6 +139,27 @@ int make_person_better(
     */
 }
 
-void cr_assert(int state, char message[], char this[]) {
+void cr_assert(int state, ...) /* char *message and opts */ {
+
+}
+
+void cr_assert_eq(int expected, int actual, ...) /* char *message */ {
+
+}
+
+void cr_assert_gt(long expected, long actual, char *message) {
+
+}
+
+void cr_assert_float_eq(
+    double expected, double actual, double eps, char *message)
+{
+}
+
+void cr_assert_null(void *expected, ...) /* char *message and opts */ {
+
+}
+
+void cr_assert_str_eq(char expected[], char actual[], char *message) {
 
 }

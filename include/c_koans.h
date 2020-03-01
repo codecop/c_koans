@@ -36,12 +36,14 @@ struct person make_person(const char *, int, int, int);
 int make_person_better(struct person *, const char *, int, int, int);
 
 void cr_assert(int state, ...); /* char *message and opts */
-void cr_assert_eq(long expected, long actual, ...); /* char *message and opts */
+void cr_assert_eq(int expected, int actual, ...); /* char *message */
 void cr_assert_gt(long expected, long actual, char *message);
-void cr_assert_null();
 void cr_assert_float_eq(double expected, double actual, double eps, char *message);
-void cr_assert_str_eq();
+void cr_assert_null(void* expected, ...); /* char *message and opts */
+void cr_assert_str_eq(char expected[], char actual[], char *message);
+/*
 void cr_assert_file_contents_eq();
 void cr_assert_arr_eq_cmp();
+*/
 
 #endif
