@@ -140,29 +140,63 @@ int make_person_better(
 }
 
 void cr_assert(int state, char *message)  {
+    if (state) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_true(state);
+    }
 }
 
 void cr_assert_eq(int expected, int actual, char *message) {
-
+    if (expected == actual) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_int_equal(expected, actual);
+    }
 }
 
-void cr_assert_gt(long expected, long actual, char *message) {
-
+void cr_assert_gt(long larger, long smaller, char *message) {
+    if (larger > smaller) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_true(larger > smaller);
+    }
 }
 
 void cr_assert_float_eq(
     double expected, double actual, double eps, char *message)
 {
+    if (abs(expected - actual) <= eps) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_float_equal(expected, actual, eps);
+    }
 }
 
-void cr_assert_null(void *expected, char *message) {
-
+void cr_assert_null(void *actual, char *message) {
+    if (actual == NULL) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_null(actual);
+    }
 }
 
 void cr_assert_str_eq(char expected[], char actual[], char *message) {
-
+    if (strcmp(expected, actual) == 0) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_string_equal(expected, actual);
+    }
 }
+
 void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], int array_size,
         int *string_compare(const void*, const void*) , char *message) {
-
+    puts(message);
+    fail();
 }
