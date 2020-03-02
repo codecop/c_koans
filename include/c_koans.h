@@ -9,7 +9,7 @@
 #define TODO 0
 #define TODO_NZ 1
 #define TODO_S ""
-#define TODO_FP (FILE*) NULL
+#define TODO_FP (FILE *)NULL
 
 typedef struct {
     int month;
@@ -38,9 +38,13 @@ int make_person_better(struct person *, const char *, int, int, int);
 void cr_assert(int state, char *message);
 void cr_assert_eq(int expected, int actual, char *message);
 void cr_assert_gt(long expected, long actual, char *message);
-void cr_assert_float_eq(double expected, double actual, double eps, char *message);
-void cr_assert_null(void* expected, char *message);
+void cr_assert_float_eq(
+    double expected, double actual, double eps, char *message);
+void cr_assert_null(void *expected, char *message);
 void cr_assert_str_eq(char expected[], char actual[], char *message);
+void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], int array_size,
+    int *string_compare(const void *, const void *), char *message);
+
 /*
 void cr_assert_file_contents_eq();
 void cr_assert_arr_eq_cmp();
