@@ -5,6 +5,9 @@ BLDDIR := build
 INCDIR := include
 
 ALL_SRCF := $(shell find $(SRCDIR) -type f -name *.c)
+#https://stackoverflow.com/a/10280945/104143
+ALL_SRCF := $(filter-out src/about_io.c, $(ALL_SRCF))
+ALL_SRCF := $(filter-out src/about_printing.c, $(ALL_SRCF))
 ALL_OBJF := $(patsubst $(SRCDIR)/%,$(BLDDIR)/%,$(ALL_SRCF:.c=.o))
 #MAINF := # use nm to find file with main and include it
 #FUNCF := $(filter-out $(MAIN_FILES), $(ALL_OBJF))
