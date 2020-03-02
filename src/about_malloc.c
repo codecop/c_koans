@@ -135,3 +135,15 @@ static void about_malloc_realloc(void** state)
     /* Hint: our VMs are little endian */
     cr_assert_eq(*(unsigned short *)ip, TODO, "What bytes were preserved now?");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_malloc_malloc_intro), /* */
+        cmocka_unit_test(about_malloc_free), /* */
+        cmocka_unit_test(about_malloc_calloc), /* */
+        cmocka_unit_test(about_malloc_realloc), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

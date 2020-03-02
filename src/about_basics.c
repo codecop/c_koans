@@ -91,3 +91,13 @@ static void about_basics_variables(void** state)
         "Addition also effects whether a number literal is "
         "interpreted as IEEE or 2's Comp");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_basics_intro), /* */
+        cmocka_unit_test(about_basics_variables), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

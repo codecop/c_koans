@@ -84,3 +84,14 @@ static void about_functions_function_scope_and_vars(void** state)
     cr_assert_eq(modify_local_static(), TODO,
         "What is the value of the local static variable after the third call?");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_functions_function_basics), /* */
+        cmocka_unit_test(about_functions_function_prototypes), /* */
+        cmocka_unit_test(about_functions_function_scope_and_vars), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

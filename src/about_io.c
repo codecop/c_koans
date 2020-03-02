@@ -153,3 +153,15 @@ static void about_io_buffered_io(void** state)
     fflush(stdout);
     cr_assert_file_contents_eq_str(stdout, "foo");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_io_streams), /* */
+        cmocka_unit_test(about_io_using_streams), /* */
+        cmocka_unit_test(about_io_file_io), /* */
+        cmocka_unit_test(about_io_buffered_io), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

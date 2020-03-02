@@ -92,3 +92,13 @@ static void about_io_printf(void** state)
         "char: J\nint: -1\nunsigned int: 4294967295\nhexadecimal unsigned int: "
         "ffffffff\nfloat: 3.140000\nlong: 3735928559\npointer: 0x400\n");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_printing_basic_printing), /* */
+        cmocka_unit_test(about_io_printf), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}
