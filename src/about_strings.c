@@ -173,3 +173,19 @@ static void about_strings_formating_strings(void** state)
         print it to string1");
     free(string1);
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_strings_what_is_string), /* */
+        cmocka_unit_test(about_strings_reference_characters), /* */
+        cmocka_unit_test(about_strings_assignment), /* */
+        cmocka_unit_test(about_strings_declaration), /* */
+        cmocka_unit_test(about_strings_sizeof_strlen), /* */
+        cmocka_unit_test(about_strings_copy), /* */
+        cmocka_unit_test(about_strings_function_paramater), /* */
+        cmocka_unit_test(about_strings_formating_strings), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

@@ -152,3 +152,15 @@ label:
     cr_assert_eq(
         var, TODO, "Determine the result of the flow of the function.");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_control_statements_ifs), /* */
+        cmocka_unit_test(about_control_statements_switch_block), /* */
+        cmocka_unit_test(about_control_statements_loops), /* */
+        cmocka_unit_test(about_control_statements_goto_and_labels), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

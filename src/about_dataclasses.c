@@ -205,3 +205,15 @@ static void about_dataclasses_about_const(void** state)
         "Attempting to do any of the previous options to "
         "lp will result in a compiler error.");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_dataclasses_unions), /* */
+        cmocka_unit_test(about_dataclasses_enums), /* */
+        cmocka_unit_test(about_dataclasses_bit_fields), /* */
+        cmocka_unit_test(about_dataclasses_about_const), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

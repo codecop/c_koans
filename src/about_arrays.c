@@ -137,3 +137,12 @@ static void about_arrays_what_is_an_array(void** state)
     */
     cr_assert_eq(a_string[12], TODO_NZ, "Null terminators are essential!");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_arrays_what_is_an_array), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

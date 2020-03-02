@@ -162,3 +162,16 @@ static void about_preprocessor_variadic_macros(void** state)
     cr_assert_eq("varable,args,with,commas", VARIADIC_ARGUMENTS(TODO),
         "Variadic macros not yet completed");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_preprocessor_macro_definitions), /* */
+        cmocka_unit_test(about_preprocessor_conditional_defines), /* */
+        cmocka_unit_test(about_preprocessor_stringizing), /* */
+        cmocka_unit_test(about_preprocessor_macro_concatination), /* */
+        cmocka_unit_test(about_preprocessor_variadic_macros), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

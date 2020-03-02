@@ -167,3 +167,15 @@ static void about_pointers_function_pointers(void** state)
     cr_assert_arr_eq_cmp(sorted_names, names, array_size, string_compare,
         "The names are not sorted.");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_pointers_pointers_and_addresses), /* */
+        cmocka_unit_test(about_pointers_pointers_as_function_arguments), /* */
+        cmocka_unit_test(about_pointers_pointers_arrays_and_arithmetic), /* */
+        cmocka_unit_test(about_pointers_function_pointers), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

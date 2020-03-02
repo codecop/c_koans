@@ -217,3 +217,17 @@ static void about_linked_lists_doubly_linked_list(void** state)
     cr_assert_eq(n2.prev, TODO, "What is the `prev` node of n2?");
     cr_assert_eq(n2.next, TODO, "What is the `next` node of n2?");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_linked_lists_linked_list_basics), /* */
+        cmocka_unit_test(about_linked_lists_traversing_linked_list), /* */
+        cmocka_unit_test(about_linked_lists_insert_into_linked_list), /* */
+        cmocka_unit_test(about_linked_lists_delete_from_linked_list), /* */
+        cmocka_unit_test(about_linked_lists_helpful_pointers), /* */
+        cmocka_unit_test(about_linked_lists_doubly_linked_list), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}

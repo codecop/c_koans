@@ -195,3 +195,15 @@ static void about_structs_self_referential_structs(void** state)
     cr_assert_eq(
         sv1.s->i, TODO, "What is the value of the nested struct's value i?");
 }
+
+int main(void)
+{
+    const struct CMUnitTest test_suite[] = {
+        cmocka_unit_test(about_structs_struct_basics), /* */
+        cmocka_unit_test(about_structs_structs_and_functions_and_pointers), /* */
+        cmocka_unit_test(about_structs_arrays_of_structs), /* */
+        cmocka_unit_test(about_structs_self_referential_structs), /* */
+    };
+
+    return cmocka_run_group_tests(test_suite, NULL, NULL);
+}
