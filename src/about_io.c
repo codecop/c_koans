@@ -34,13 +34,13 @@ static void about_io_streams(void** state)
 	waiting	until input is entered into the program.
     */
 
-    cr_assert_str_eq("stdio", TODO_S, "The standard input stream is...");
+    cr_assert_str_eq("stdin", "stdin", "The standard input stream is...");
 
     /*
         stdout provides output, which is typically your terminal screen.
     */
 
-    cr_assert_str_eq("stdout", TODO_S, "The standard output stream is...");
+    cr_assert_str_eq("stdout", "stdout", "The standard output stream is...");
 
     /*
         stderr is slightly different than stdin and stdout. This stream provides
@@ -56,7 +56,7 @@ static void about_io_streams(void** state)
 	more advanced C programming.
     */
 
-    cr_assert_str_eq("stderr", TODO_S,
+    cr_assert_str_eq("stderr", "stderr",
 		     "The output stream for error messages is...");
 }
 
@@ -81,8 +81,8 @@ static void about_io_using_streams(void** state)
 	(stdin, stdout, and stderr)
     */
 
-    fputs("Hello World", TODO_FP);
-    fputs("Hello World", TODO_FP);
+    fputs("Hello World", stdout);
+    fputs("Hello World", stderr);
 
     cr_assert_file_contents_eq_str(stdout, "Hello World");
     cr_assert_file_contents_eq_str(stderr, "Hello World");
@@ -122,7 +122,7 @@ static void about_io_file_io(void** state)
     */
     fgets(buf, 1024, f);
 
-    cr_assert_str_eq(buf, TODO_S, "view rsrc/file.txt to see what buf should be");
+    cr_assert_str_eq(buf, "This was read as a string.\n", "view rsrc/file.txt to see what buf should be");
 }
 
 static void about_io_buffered_io(void** state)
@@ -150,7 +150,7 @@ static void about_io_buffered_io(void** state)
         For this koan, output "foo" to stdout. This may seem trivial, but the
 	added "fflush" changes this operation quite a bit under the hood.
     */
-    fputs(TODO_S, TODO_FP);
+    fputs("foo", stdout);
     fflush(stdout);
     cr_assert_file_contents_eq_str(stdout, "foo");
 }
