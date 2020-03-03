@@ -186,6 +186,15 @@ void cr_assert_null(void *actual, char *message) {
     }
 }
 
+void cr_assert_not_null(void *actual, char *message) {
+    if (actual != NULL) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_non_null(actual);
+    }
+}
+
 void cr_assert_str_eq(char expected[], char actual[], char *message) {
     if (strcmp(expected, actual) == 0) {
         /* ok */

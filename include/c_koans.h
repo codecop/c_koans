@@ -41,6 +41,7 @@ void cr_assert_gt(long expected, long actual, char *message);
 void cr_assert_float_eq(
     double expected, double actual, double eps, char *message);
 void cr_assert_null(void *expected, char *message);
+void cr_assert_not_null(void *actual, char *message);
 void cr_assert_str_eq(char expected[], char actual[], char *message);
 void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], int array_size,
     int *string_compare(const void *, const void *), char *message);
