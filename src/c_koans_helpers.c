@@ -155,6 +155,15 @@ void cr_assert_eq(int expected, int actual, char *message) {
     }
 }
 
+void cr_assert_not_eq(int expected, int actual, char *message) {
+    if (expected != actual) {
+        /* ok */
+    } else {
+        puts(message);
+        assert_int_not_equal(expected, actual);
+    }
+}
+
 void cr_assert_gt(long larger, long smaller, char *message) {
     if (larger > smaller) {
         /* ok */
