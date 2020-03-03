@@ -7,6 +7,10 @@ call make all
 bin\about_basics
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
+bin\about_arrays
+@if errorlevel 1 @color 04 && @echo FAILED && @goto end
+
+@rem needs sizeof
 bin\about_strings
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
@@ -17,15 +21,12 @@ bin\about_control_statements
 bin\about_functions
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
-@rem needs string
+@rem needs string, arrays
 bin\about_pointers
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 @rem needs strings, pointers
 bin\about_malloc
-@if errorlevel 1 @color 04 && @echo FAILED && @goto end
-
-bin\about_arrays
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 bin\about_structs
