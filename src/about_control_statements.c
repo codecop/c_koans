@@ -26,7 +26,7 @@ static void about_control_statements_ifs(void** state)
         var = 2;
 
     /* To pass this test, determine where the control flow will go. */
-    cr_assert_eq(var, TODO, "If statements work just like other languages");
+    cr_assert_eq(var, 1, "If statements work just like other languages");
 
     /* Of course, C also has the familiar else-if */
     if (1 > 2)
@@ -36,7 +36,7 @@ static void about_control_statements_ifs(void** state)
     else
         var = 4;
 
-    cr_assert_eq(var, TODO, "Determine the control flow for this block, too");
+    cr_assert_eq(var, 4, "Determine the control flow for this block, too");
 }
 
 static void about_control_statements_switch_block(void** state)
@@ -63,7 +63,7 @@ static void about_control_statements_switch_block(void** state)
         break;
     }
 
-    cr_assert_eq(var, TODO, "Determine the control flow for this block.");
+    cr_assert_eq(var, 200, "Determine the control flow for this block.");
 }
 
 static void about_control_statements_loops(void** state)
@@ -89,7 +89,7 @@ static void about_control_statements_loops(void** state)
     }
 
     cr_assert_eq(
-        var, TODO, "Determine the result of the execution of this loop.");
+        var, 10, "Determine the result of the execution of this loop.");
 
     /*
         The for loop should also feel familiar.
@@ -111,7 +111,7 @@ static void about_control_statements_loops(void** state)
         have any statements.
     */
     cr_assert_eq(
-        var, TODO, "Determine the result of the for loop's execution.");
+        var, 10, "Determine the result of the for loop's execution.");
 
     /*
         The final loop, the do-while, executes the same as the while,
@@ -124,7 +124,7 @@ static void about_control_statements_loops(void** state)
     } while (var < 10);
 
     cr_assert_eq(
-        var, TODO, "Determine the result of the do-while loop's execution");
+        var, 10, "Determine the result of the do-while loop's execution");
 }
 
 static void about_control_statements_goto_and_labels(void** state)
@@ -150,7 +150,7 @@ static void about_control_statements_goto_and_labels(void** state)
     */
 label:
     cr_assert_eq(
-        var, TODO, "Determine the result of the flow of the function.");
+        var, 10, "Determine the result of the flow of the function.");
 }
 
 int main(void)
