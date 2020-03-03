@@ -10,15 +10,22 @@ bin\about_basics
 bin\about_arrays
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
+bin\about_control_statements
+@if errorlevel 1 @color 04 && @echo FAILED && @goto end
+
 @rem needs sizeof
 bin\about_strings
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
-bin\about_control_statements
+@rem needs arrays, sizeof
+bin\about_dataclasses
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 @rem needs string
 bin\about_functions
+@if errorlevel 1 @color 04 && @echo FAILED && @goto end
+
+bin\about_io
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 @rem needs string, arrays
@@ -29,15 +36,6 @@ bin\about_pointers
 bin\about_malloc
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
-bin\about_structs
-@if errorlevel 1 @color 04 && @echo FAILED && @goto end
-
-bin\about_dataclasses
-@if errorlevel 1 @color 04 && @echo FAILED && @goto end
-
-bin\about_linked_lists
-@if errorlevel 1 @color 04 && @echo FAILED && @goto end
-
 @rem needs string
 bin\about_preprocessor
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
@@ -46,7 +44,11 @@ bin\about_preprocessor
 bin\about_printing
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
-bin\about_io
+bin\about_structs
+@if errorlevel 1 @color 04 && @echo FAILED && @goto end
+
+@rem an application of pointers and structs
+bin\about_linked_lists
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 :end
