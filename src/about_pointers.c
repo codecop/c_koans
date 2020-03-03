@@ -114,7 +114,7 @@ static void about_pointers_function_pointers(void** state)
 
     const size_t array_size = 5;
     char *names[] = { "Spike", "Ein", "Jet", "Ed", "Faye" };
-    const char * const sorted_names[] = { "Ed", "Ein", "Faye", "Jet", "Spike" };
+    char * sorted_names[] = { "Ed", "Ein", "Faye", "Jet", "Spike" };
     (void)array_size; /* to avoid a compiler error */
 
     /*
