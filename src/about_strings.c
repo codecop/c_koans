@@ -1,5 +1,6 @@
 #include "c_koans.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <strings.h>
 
 /*
@@ -29,7 +30,7 @@ static void about_strings_what_is_string(void** state)
         'c', *string, "Dereferencing will give the first character of \
         the string");
 
-    cr_assert_eq('S', *(string + 1), "Dereferencing with offset will give \
+    cr_assert_eq('s', *(string + 1), "Dereferencing with offset will give \
         character at offset");
 }
 
