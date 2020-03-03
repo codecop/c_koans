@@ -14,7 +14,7 @@
 
 #define JOKER "JOKER"
 
-#define MAX(a, b) (a)
+#define MAX(a, b) (((a) < (b)) ? (b) : (a))
 
 static void about_preprocessor_macro_definitions(void** state)
 {
@@ -31,7 +31,7 @@ static void about_preprocessor_macro_definitions(void** state)
 
     /* Fix the string we are comparing with what JOKER will be replaced with. */
 
-    const char *CHANGE_ME = "MONA";
+    const char *CHANGE_ME = "JOKER";
     cr_assert(strcmp(CHANGE_ME, JOKER) == 0,
         "Macro JOKER not compared with what it was replaced with!");
 
@@ -40,8 +40,7 @@ static void about_preprocessor_macro_definitions(void** state)
         replacement to be different on different calls to the macro.
 
         You have to be careful with these macros: they may look like a function,
-        but
-        they are just text replacement when they are expanded.
+        but they are just text replacement when they are expanded.
     */
 
     /*
@@ -57,18 +56,18 @@ static void about_preprocessor_macro_definitions(void** state)
 }
 
 #ifndef DEFINE_ME
-#define FIVE 0
+#define FIVE 5
 #else
 #define FIVE 5
 #endif /* DEFINE_ME */
+
+#define MOVE_ME
 
 #ifndef MOVE_ME
 #define SEVEN 0
 #else
 #define SEVEN 7
 #endif /* MOVE_ME */
-
-#define MOVE_ME
 
 static void about_preprocessor_conditional_defines(void** state)
 {
@@ -78,8 +77,7 @@ static void about_preprocessor_conditional_defines(void** state)
         Conditional logic can be done with a few different directives.
         These directives include 'if', 'elif', 'ifdef', ifndef' and 'else'
         'if', 'elif', and 'else' work as you would expect them to, so we will
-        ignore
-        these for now.
+        ignore these for now.
 
         'ifdef' and 'ifndef' check if the input string has been defined as a
         macro.
@@ -114,7 +112,7 @@ static void about_preprocessor_stringizing(void** state)
         To complete this test, replace put the correct argument into STRINGIZE
         such that it will match the string literal.
     */
-    cr_assert_eq("my string", STRINGIZE(TODO), "Stringizing not completed.");
+    cr_assert_eq("my string", STRINGIZE(my string), "Stringizing not completed.");
 }
 
 #define ALWAYS_FALSE false
@@ -137,7 +135,7 @@ static void about_preprocessor_macro_concatination(void** state)
         To complete this test, assert that THIS_IS(TRUE)!
         Be wary of your usage of capital letters.
     */
-    cr_assert(THIS_IS(FALSE), "Concatenation not completed.");
+    cr_assert(THIS_IS(TRUE), "Concatenation not completed.");
 }
 
 #define VARIADIC_ARGUMENTS(...) #__VA_ARGS__
@@ -161,7 +159,7 @@ static void about_preprocessor_variadic_macros(void** state)
         Note that the macro takes advantage of stringizing. Your argument is not
         going to be a string.
     */
-    cr_assert_eq("varable,args,with,commas", VARIADIC_ARGUMENTS(TODO),
+    cr_assert_eq("varable,args,with,commas", VARIADIC_ARGUMENTS(varable,args,with,commas),
         "Variadic macros not yet completed");
 }
 
