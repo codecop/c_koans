@@ -3,7 +3,7 @@
 
 void func(int *array)
 {
-    cr_assert_eq(sizeof(array), 0,
+    cr_assert_eq(sizeof(array), TODO,
         "That same array gives a different size "
         "when passed into this function");
 }
@@ -33,11 +33,11 @@ static void about_arrays_what_is_an_array(void** state)
      * An array variable's name is merely a label for the address of the first
      * element in the array.
     */
-    cr_assert_eq(*array, 0,
+    cr_assert_eq(*array, TODO,
         "Dereferencing this label's address gives us the "
         "value at that point");
 
-    cr_assert_eq(*(array + 2), array[0],
+    cr_assert_eq(*(array + 2), array[TODO],
         "Dereferencing with an offset is the same as using the bracket notation"
         " to access");
 
@@ -57,7 +57,7 @@ static void about_arrays_what_is_an_array(void** state)
         parenthesis.
     */
 
-    cr_assert_eq(sizeof(array), 0,
+    cr_assert_eq(sizeof(array), TODO,
         "sizeof an array can be tricky is it size "
         "of a pointer or sum of all memory the "
         "array takes up?");
