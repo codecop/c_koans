@@ -85,8 +85,8 @@ int make_person_better(struct person *, const char *, int, int, int);
         assert_string_equal((expected), (actual)); \
     }
 
-void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], int array_size,
-    int *string_compare(const void *, const void *), char *message);
+void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], size_t array_size,
+    int (*string_compare)(const void *, const void *), char *message);
 
 /*
 void cr_assert_file_contents_eq();
