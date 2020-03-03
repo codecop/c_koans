@@ -31,7 +31,7 @@ static void about_malloc_malloc_intro(void** state)
     */
     int *i = malloc(sizeof(int));
     *i = 5;
-    cr_assert_eq(*i, 6, "");
+    cr_assert_eq(*i, TODO, "What is the value of i on the heap?");
 
     /*
         If you allocate space for a variable on the stack in a function call,
@@ -42,8 +42,8 @@ static void about_malloc_malloc_intro(void** state)
         because it is allocated on the heap. Therefore, functions that need
         to return new pointers should allocate space for them using malloc.
     */
-    int *return_ptr = malloc_func(); /* goto line 5 */
-    cr_assert_eq(*return_ptr, TODO, "");
+    int *return_ptr = malloc_func(); /* goto line 6 */
+    cr_assert_eq(*return_ptr, TODO, "What is the value of return_ptr on the heap?");
 }
 
 static void about_malloc_free(void** state)
