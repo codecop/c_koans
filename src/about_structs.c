@@ -25,14 +25,14 @@ static void about_structs_struct_basics(void** state)
     p1.x = 10;
     p1.y = 2;
 
-    cr_assert_eq(p1.x, TODO, "What has the x value been initialized to?");
+    cr_assert_eq(p1.x, 10, "What has the x value been initialized to?");
 
     /*
         The sizeof operator will operate as expected, even with a struct
         Since we are using sizeof on p1, we do not have to enclose it in
         parenthesis
     */
-    cr_assert_eq(sizeof p1, TODO, "What is the size of our two ints?");
+    cr_assert_eq(sizeof p1, 8, "What is the size of our two ints?");
 
     /*
         We can initialized our structs statically, with similar syntax to array
@@ -42,7 +42,7 @@ static void about_structs_struct_basics(void** state)
     */
     struct point2d p2 = { 10, 20 };
 
-    cr_assert_eq(p2.y, TODO, "What has the y value been initialized to?");
+    cr_assert_eq(p2.y, 20, "What has the y value been initialized to?");
 
     /*
         You can even have structs that contain structs
@@ -64,7 +64,7 @@ static void about_structs_struct_basics(void** state)
     p3.two_d.y = 20;
     p3.z = 40;
 
-    cr_assert_eq(p3.two_d.y, TODO, "Member access is no different than usual");
+    cr_assert_eq(p3.two_d.y, 20, "Member access is no different than usual");
 
     /*
         You can use 'typedef' to declare a struct type that can be used without
@@ -79,7 +79,7 @@ static void about_structs_struct_basics(void** state)
     p4.three_d.z = 2;
     p4.three_d.two_d.x = 1;
 
-    cr_assert_eq(p4.three_d.two_d.x, TODO,
+    cr_assert_eq(p4.three_d.two_d.x, 1,
         "What is the value of x, after all the struct access?");
 }
 
@@ -96,7 +96,7 @@ static void about_structs_structs_and_functions_and_pointers(void** state)
     /* Examine this function in c_koans_helpers.c */
     person1 = make_person("Brian", 5, 14, 1996);
 
-    cr_assert_str_eq(person1.name, TODO_S, "What is the name of this person?");
+    cr_assert_str_eq(person1.name, "Brian", "What is the name of this person?");
 
     /*
         Since functions are call by value in C, this means that a function
@@ -110,10 +110,10 @@ static void about_structs_structs_and_functions_and_pointers(void** state)
     /* Examine this function in c_koans_helpers.c */
     int success = make_person_better(&person2, "Bob", 10, 23, 1994);
 
-    cr_assert_eq(success, TODO_NZ,
+    cr_assert_eq(success, EXIT_SUCCESS,
         "If the operation succeeded, what is the return value?");
     cr_assert_eq(
-        person2.bday.month, TODO, "What is the month for this person?");
+        person2.bday.month, 10, "What is the month for this person?");
 }
 
 static void about_structs_arrays_of_structs(void** state)
@@ -132,7 +132,7 @@ static void about_structs_arrays_of_structs(void** state)
 
     struct s1 a1[5];
 
-    cr_assert_eq(sizeof a1, TODO, "What is the size of this array in bytes?");
+    cr_assert_eq(sizeof a1, 40, "What is the size of this array in bytes?");
 
     /*
         For arrays of structs, the size of the struct must be conscious of the
@@ -151,7 +151,7 @@ static void about_structs_arrays_of_structs(void** state)
     };
 
     cr_assert_eq(
-        sizeof(struct s2), TODO, "What is the size of the padded struct?");
+        sizeof(struct s2), 8, "What is the size of the padded struct?");
 
     /*
         Compilers will have special extensions to allow for the packing of
@@ -166,7 +166,7 @@ static void about_structs_arrays_of_structs(void** state)
     } __attribute__((packed));
 
     cr_assert_eq(
-        sizeof(struct s3), TODO, "What is the size of the packed struct?");
+        sizeof(struct s3), 5, "What is the size of the packed struct?");
 }
 
 static void about_structs_self_referential_structs(void** state)
@@ -193,7 +193,7 @@ static void about_structs_self_referential_structs(void** state)
     sv1.s->j = 20;
 
     cr_assert_eq(
-        sv1.s->i, TODO, "What is the value of the nested struct's value i?");
+        sv1.s->i, 10, "What is the value of the nested struct's value i?");
 }
 
 int main(void)
