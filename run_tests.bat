@@ -25,9 +25,6 @@ bin\about_dataclasses
 bin\about_functions
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
-bin\about_io
-@if errorlevel 1 @color 04 && @echo FAILED && @goto end
-
 @rem needs string, arrays
 bin\about_pointers
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
@@ -42,6 +39,10 @@ bin\about_preprocessor
 
 @rem needs string
 bin\about_printing
+@if errorlevel 1 @color 04 && @echo FAILED && @goto end
+
+@rem needs printing before
+bin\about_io
 @if errorlevel 1 @color 04 && @echo FAILED && @goto end
 
 bin\about_structs
