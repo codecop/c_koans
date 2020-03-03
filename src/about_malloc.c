@@ -31,7 +31,7 @@ static void about_malloc_malloc_intro(void** state)
     */
     int *i = malloc(sizeof(int));
     *i = 5;
-    cr_assert_eq(*i, TODO, "What is the value of i on the heap?");
+    cr_assert_eq(*i, 5, "What is the value of i on the heap?");
 
     /*
         If you allocate space for a variable on the stack in a function call,
@@ -43,7 +43,7 @@ static void about_malloc_malloc_intro(void** state)
         to return new pointers should allocate space for them using malloc.
     */
     int *return_ptr = malloc_func(); /* goto line 6 */
-    cr_assert_eq(*return_ptr, TODO, "What is the value of return_ptr on the heap?");
+    cr_assert_eq(*return_ptr, 15, "What is the value of return_ptr on the heap?");
 }
 
 static void about_malloc_free(void** state)
@@ -80,7 +80,7 @@ static void about_malloc_free(void** state)
     ip = NULL;
 
     cr_assert_eq(
-        ip, (void *)TODO_NZ, "What is ip now? What would happen if we \
+        ip, (void *)0, "What is ip now? What would happen if we \
         dereference ip?");
 }
 
@@ -101,10 +101,10 @@ static void about_malloc_calloc(void** state)
         memory will be a valid C-string of length 0.
     */
 
-    cr_assert_eq(strlen(s), TODO_NZ, "What is the length of an empty string?");
+    cr_assert_eq(strlen(s), 0, "What is the length of an empty string?");
     strcpy(s, "foo");
 
-    cr_assert_eq(strlen(s), TODO, "What is the new length?");
+    cr_assert_eq(strlen(s), 3, "What is the new length?");
 }
 
 static void about_malloc_realloc(void** state)
@@ -127,13 +127,13 @@ static void about_malloc_realloc(void** state)
     ip = realloc(ip, sizeof(long));
 
     cr_assert_eq(
-        *(unsigned long *)ip, TODO, "What bytes of ip were preserved \
+        *(unsigned long *)ip, 0xDEADBEEF, "What bytes of ip were preserved \
         when it is increased in size?");
 
     ip = realloc(ip, sizeof(short));
 
     /* Hint: our VMs are little endian */
-    cr_assert_eq(*(unsigned short *)ip, TODO, "What bytes were preserved now?");
+    cr_assert_eq(*(unsigned short *)ip, 0xBEEF, "What bytes were preserved now?");
 }
 
 int main(void)
