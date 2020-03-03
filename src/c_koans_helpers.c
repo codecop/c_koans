@@ -213,7 +213,7 @@ void cr_assert_arr_eq_cmp(char *expected[], char *actual[],
     size_t array_size, int (*string_compare)(const void *, const void *),
     char *message)
 {
-    for (int i = 0; i < array_size; i++) {
+    for (unsigned int i = 0; i < array_size; i++) {
         if (string_compare(&expected[i], &actual[i]) != 0) {
             puts(message);
             fail();
