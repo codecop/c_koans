@@ -37,6 +37,7 @@ int make_person_better(struct person *, const char *, int, int, int);
 
 void cr_assert(int state, char *message);
 void cr_assert_eq(int expected, int actual, char *message);
+void cr_assert_not_eq(int expected, int actual, char *message);
 void cr_assert_gt(long expected, long actual, char *message);
 void cr_assert_float_eq(
     double expected, double actual, double eps, char *message);
