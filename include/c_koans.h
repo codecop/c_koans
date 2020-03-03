@@ -1,7 +1,9 @@
-#include <setjmp.h> /* jmp_buf for mocka */
-#include <stdarg.h> /* va_start for mocka */
-#include <stddef.h> /* size_t for mocka */
+#include <setjmp.h> /* jmp_buf for cmocka */
+#include <stdarg.h> /* va_start for cmocka */
+#include <stddef.h> /* size_t for cmocka */
 #include <cmocka.h>
+#include <stdio.h> /* puts for asserts */
+#include <stdlib.h> /* abs for asserts */
 
 #ifndef CKOANS_H
 #define CKOANS_H
@@ -35,15 +37,54 @@ int modify_local_static();
 struct person make_person(const char *, int, int, int);
 int make_person_better(struct person *, const char *, int, int, int);
 
-void cr_assert(int state, char *message);
-void cr_assert_eq(int expected, int actual, char *message);
-void cr_assert_not_eq(int expected, int actual, char *message);
-void cr_assert_gt(long expected, long actual, char *message);
-void cr_assert_float_eq(
-    double expected, double actual, double eps, char *message);
-void cr_assert_null(void *expected, char *message);
-void cr_assert_not_null(void *actual, char *message);
-void cr_assert_str_eq(char expected[], char actual[], char *message);
+#define cr_assert(state, message) \
+    if (!(state)) { \
+        puts((message)); \
+        assert_true((state)); \
+    }
+
+#define cr_assert_eq(expected, actual, message) \
+    if ((expected) != (actual)) { \
+        puts((message)); \
+        assert_int_equal((expected), (actual)); \
+    }
+
+#define cr_assert_not_eq(expected, actual, message) \
+    if ((expected) == (actual)) { \
+        puts((message)); \
+        assert_int_equal((expected), (actual)); \
+    }
+
+#define cr_assert_gt(larger, smaller, message) \
+    if ((larger) <= (smaller)) { \
+        puts((message)); \
+        assert_true((larger) > (smaller)); \
+    }
+
+#define cr_assert_float_eq(expected, actual, eps, message) \
+    if (abs((expected) - (actual)) > (eps)) { \
+        puts((message)); \
+        assert_float_equal((expected), (actual), (eps)); \
+    }
+
+#define cr_assert_null(actual, message) \
+    if ((actual) != NULL) { \
+        puts((message)); \
+        assert_null((actual)); \
+    }
+
+#define cr_assert_not_null(actual, message) \
+    if ((actual) == NULL) { \
+        puts((message)); \
+        assert_non_null((actual)); \
+    }
+
+#define cr_assert_str_eq(expected, actual, message) \
+    if (strcmp((expected), (actual)) != 0) { \
+        puts((message)); \
+        assert_string_equal((expected), (actual)); \
+    }
+
 void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[], int array_size,
     int *string_compare(const void *, const void *), char *message);
 
