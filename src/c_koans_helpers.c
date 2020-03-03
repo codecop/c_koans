@@ -1,5 +1,4 @@
 #include "c_koans.h"
-#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -209,9 +208,8 @@ int make_person_better(
 //     }
 // }
 
-void cr_assert_arr_eq_cmp(char *expected[], char *actual[],
-    size_t array_size, int (*string_compare)(const void *, const void *),
-    char *message)
+void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
+    int (*string_compare)(const void *, const void *), char *message)
 {
     for (unsigned int i = 0; i < array_size; i++) {
         if (string_compare(&expected[i], &actual[i]) != 0) {
@@ -220,4 +218,36 @@ void cr_assert_arr_eq_cmp(char *expected[], char *actual[],
             break;
         }
     }
+}
+
+void cr_assert_file_contents_eq_str(FILE *f, char *expected)
+{
+    // // https://stackoverflow.com/a/35249468/104143
+    // int stdout_bk; // is fd for stdout backup
+    // stdout_bk = dup(fileno(f));
+
+    // int pipefd[2];
+    // pipe2(pipefd, 0); // O_NONBLOCK);
+
+    // // What used to be stdout will now go to the pipe.
+    // dup2(pipefd[1], fileno(f));
+
+    // fflush(f); // flushall();
+    // write(pipefd[1], "", 1); // null-terminated string!
+    // close(pipefd[1]);
+
+    // dup2(stdout_bk, fileno(f)); // restore
+
+    // char actual[101];
+    // read(pipefd[0], actual, 100);
+    // cr_assert_str_eq(expected, actual, "Read content different.");
+
+    // char actual[1024];
+    // if (fgets(actual, 1024, f) != NULL) {
+    //     cr_assert_str_eq(expected, actual, "Read content different.");
+    // } else {
+    //     perror("Error printed by perror");
+    //     puts("Reading from file did not return anything");
+    // fail();
+    // }
 }
