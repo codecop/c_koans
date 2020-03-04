@@ -48,11 +48,12 @@ int make_person_better(struct person *, const char *, int, int, int);
         puts((message)); \
         assert_int_equal((expected), (actual)); \
     }
+// also ptr_equal
 
 #define cr_assert_not_eq(expected, actual, message) \
     if ((expected) == (actual)) { \
         puts((message)); \
-        assert_int_equal((expected), (actual)); \
+        assert_int_not_equal((expected), (actual)); \
     }
 
 #define cr_assert_gt(larger, smaller, message) \
