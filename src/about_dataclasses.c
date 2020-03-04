@@ -23,7 +23,7 @@ static void about_dataclasses_unions(void** state)
 
     u.d = 1.01;
 
-    cr_assert_eq(u.d, 1.01, "What is the value of d that we assigned?");
+    cr_assert_float_eq(u.d, 1.01, 0.01, "What is the value of d that we assigned?");
     cr_assert_eq(sizeof u, 8,
         "What is the size of the largest data type in "
         "the union?");
