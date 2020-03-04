@@ -1,0 +1,3 @@
+/*
+ * Adapter to ignore Criterion.
+ */
