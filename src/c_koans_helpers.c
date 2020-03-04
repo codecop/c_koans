@@ -1,4 +1,5 @@
 #include "c_koans.h"
+#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -136,78 +137,6 @@ int make_person_better(
     */
 }
 
-// void cr_assert(int state, char *message)  {
-//     if (state) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_true(state);
-//     }
-// }
-
-// void cr_assert_eq(int expected, int actual, char *message) {
-//     if (expected == actual) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_int_equal(expected, actual);
-//     }
-// }
-
-// void cr_assert_not_eq(int expected, int actual, char *message) {
-//     if (expected != actual) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_int_not_equal(expected, actual);
-//     }
-// }
-
-// void cr_assert_gt(long larger, long smaller, char *message) {
-//     if (larger > smaller) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_true(larger > smaller);
-//     }
-// }
-
-// void cr_assert_float_eq(
-//     double expected, double actual, double eps, char *message)
-// {
-//     if (abs(expected - actual) > eps) {
-//         puts(message);
-//         assert_float_equal(expected, actual, eps);
-//     }
-// }
-
-// void cr_assert_null(void *actual, char *message) {
-//     if (actual == NULL) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_null(actual);
-//     }
-// }
-
-// void cr_assert_not_null(void *actual, char *message) {
-//     if (actual != NULL) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_non_null(actual);
-//     }
-// }
-
-// void cr_assert_str_eq(char expected[], char actual[], char *message) {
-//     if (strcmp(expected, actual) == 0) {
-//         /* ok */
-//     } else {
-//         puts(message);
-//         assert_string_equal(expected, actual);
-//     }
-// }
-
 void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
     int (*string_compare)(const void *, const void *), char *message)
 {
@@ -222,32 +151,5 @@ void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
 
 void cr_assert_file_contents_eq_str(FILE *f, char *expected)
 {
-    // // https://stackoverflow.com/a/35249468/104143
-    // int stdout_bk; // is fd for stdout backup
-    // stdout_bk = dup(fileno(f));
-
-    // int pipefd[2];
-    // pipe2(pipefd, 0); // O_NONBLOCK);
-
-    // // What used to be stdout will now go to the pipe.
-    // dup2(pipefd[1], fileno(f));
-
-    // fflush(f); // flushall();
-    // write(pipefd[1], "", 1); // null-terminated string!
-    // close(pipefd[1]);
-
-    // dup2(stdout_bk, fileno(f)); // restore
-
-    // char actual[101];
-    // read(pipefd[0], actual, 100);
-    // cr_assert_str_eq(expected, actual, "Read content different.");
-
-    // char actual[1024];
-    // if (fgets(actual, 1024, f) != NULL) {
-    //     cr_assert_str_eq(expected, actual, "Read content different.");
-    // } else {
-    //     perror("Error printed by perror");
-    //     puts("Reading from file did not return anything");
-    // fail();
-    // }
+    // TODO see https://stackoverflow.com/a/35249468/104143
 }
