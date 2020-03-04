@@ -14,7 +14,7 @@ The test are written in the [cmocka](https://cmocka.org/) unit testing library.
 
 1. Install [cmocka](https://cmocka.org/)
 2. run `make clean all`
-3. run `bin/c_koans`
+3. run `bin/about_basics` and following (or run `run_tests`)
 4. Start fixing!
 
 ### On Windows:
