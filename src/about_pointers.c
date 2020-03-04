@@ -1,6 +1,9 @@
 #include "c_koans.h"
 #include <string.h>
 
+#include <stdint.h>
+#define UPTR (UINTPTR_MAX > 0xffffffffU ? 8U : 4U)
+
 static void about_pointers_pointers_and_addresses(void** state)
 {
     (void)state; /* unused */
@@ -22,7 +25,7 @@ static void about_pointers_pointers_and_addresses(void** state)
 
     cr_assert_eq(
         sizeof(i), 4, "What is the size of an int on a 64 bit machine?");
-    cr_assert_eq(sizeof(iptr), 8,
+    cr_assert_eq(sizeof(iptr), UPTR,
         "What is the size of an address on a 64 bit machine?");
 
     /* The '*' operator has another meaning when used not in a declaration to
@@ -44,8 +47,8 @@ static void about_pointers_pointers_and_addresses(void** state)
     /* clang-format on */
 
     cr_assert_eq(sizeof(k), 4, "What type is k?");
-    cr_assert_eq(sizeof(l), 8, "What type is l?");
-    cr_assert_eq(sizeof(m), 8, "What type is m?");
+    cr_assert_eq(sizeof(l), UPTR, "What type is l?");
+    cr_assert_eq(sizeof(m), UPTR, "What type is m?");
     cr_assert_eq(sizeof(n), 4, "What type is n?");
 }
 

@@ -1,9 +1,12 @@
 #include "c_koans.h"
 #include <stdlib.h>
 
+#include <stdint.h>
+#define UPTR (UINTPTR_MAX > 0xffffffffU ? 8U : 4U)
+
 void func(int *array)
 {
-    cr_assert_eq(sizeof(array), 8,
+    cr_assert_eq(sizeof(array), UPTR,
         "That same array gives a different size "
         "when passed into this function");
 }
