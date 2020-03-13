@@ -34,8 +34,8 @@ static void about_linked_lists_linked_list_basics(void** state)
 
     head.next = &list_node;
 
-    cr_assert_eq(head.next, TODO, "What is the `next` value of head?");
-    cr_assert_eq(head.next->data, TODO, "What `data` does it hold?");
+    cr_assert_eq(head.next, &list_node, "What is the `next` value of head?");
+    cr_assert_eq(head.next->data, 12, "What `data` does it hold?");
 
     /*
         Remember that when using the sizeof operator on a array type, it will
@@ -44,7 +44,7 @@ static void about_linked_lists_linked_list_basics(void** state)
         How much memory does each `struct linked_list` node take up? What are
         the pros/cons of this memory usage compared to arrays?
     */
-    cr_assert_eq(sizeof(head), TODO, "How much memory does `head` occupy?");
+    cr_assert_eq(sizeof(head), 2 * sizeof(void*), "How much memory does `head` occupy?");
 }
 
 static void about_linked_lists_traversing_linked_list(void** state)
@@ -74,8 +74,8 @@ static void about_linked_lists_traversing_linked_list(void** state)
         /* Do some operations ... */
     }
 
-    cr_assert_eq(nodes[3].next, TODO, "What is nodes[3] pointing to?");
-    cr_assert_eq(nodes[3].next->data, TODO, "What is the data contained?");
+    cr_assert_eq(nodes[3].next, &nodes[2], "What is nodes[3] pointing to?");
+    cr_assert_eq(nodes[3].next->data, 3, "What is the data contained?");
 }
 
 /*
@@ -113,10 +113,10 @@ static void about_linked_lists_insert_into_linked_list(void** state)
     */
     struct linked_list *new_node = insert(&head, 2);
 
-    cr_assert_eq(new_node->next, TODO, "What is the new node pointing to?");
-    cr_assert_eq(head.next, TODO, "Where is head.next pointing to?");
+    cr_assert_eq(new_node->next, NULL, "What is the new node pointing to?");
+    cr_assert_eq(head.next, new_node, "Where is head.next pointing to?");
     cr_assert_eq(
-        head.next->data, TODO, "What data is stored in the node after `head`?");
+        head.next->data, 2, "What data is stored in the node after `head`?");
 }
 
 /*
@@ -151,10 +151,10 @@ static void about_linked_lists_delete_from_linked_list(void** state)
     struct linked_list *deleted_node = delete (&nodes[4], 3);
 
     cr_assert_eq(
-        deleted_node->next, TODO, "What was the deleted node pointing to?");
-    cr_assert_eq(nodes[3].next, TODO, "What is the next node after nodes[3]?");
+        deleted_node->next, &nodes[1], "What was the deleted node pointing to?");
+    cr_assert_eq(nodes[3].next, &nodes[1], "What is the next node after nodes[3]?");
     cr_assert_eq(
-        nodes[3].next->data, TODO, "What data is contained in that node?");
+        nodes[3].next->data, 2, "What data is contained in that node?");
 }
 
 static void about_linked_lists_helpful_pointers(void** state)
@@ -173,20 +173,20 @@ static void about_linked_lists_helpful_pointers(void** state)
     };
 
     cr_assert_eq(
-        sizeof(struct _linked_list), TODO, "How much memory does it occupy?");
+        sizeof(struct _linked_list), 2 * sizeof(void*), "How much memory does it occupy?");
 
     struct list_node nodes[5] = { { 5, NULL }, { 4, &nodes[0] },
         { 3, &nodes[1] }, { 2, &nodes[2] }, { 1, &nodes[3] } };
 
     struct _linked_list list = { &nodes[4], &nodes[0] };
 
-    cr_assert_eq(list.head, TODO, "Where is head pointing to?");
+    cr_assert_eq(list.head, &nodes[4], "Where is head pointing to?");
     cr_assert_eq(
-        list.head->data, TODO, "What is the data contained in the head?");
+        list.head->data, 1, "What is the data contained in the head?");
 
-    cr_assert_eq(list.tail, TODO, "Where is tail pointing to?");
+    cr_assert_eq(list.tail, &nodes[0], "Where is tail pointing to?");
     cr_assert_eq(
-        list.tail->data, TODO, "What is the data contained in the tail?");
+        list.tail->data, 5, "What is the data contained in the tail?");
 }
 
 static void about_linked_lists_doubly_linked_list(void** state)
@@ -205,7 +205,7 @@ static void about_linked_lists_doubly_linked_list(void** state)
         struct dbl_linked_list *prev;
     };
 
-    cr_assert_eq(sizeof(struct dbl_linked_list), TODO,
+    cr_assert_eq(sizeof(struct dbl_linked_list), 3 * sizeof(void*),
         "How much memory does it occupy?");
 
     struct dbl_linked_list n1 = { 1, NULL, NULL }, n2 = { 2, NULL, NULL }, n3 = { 3, NULL, NULL };
@@ -214,8 +214,8 @@ static void about_linked_lists_doubly_linked_list(void** state)
     n2.prev = &n1;
     n3.prev = &n2;
 
-    cr_assert_eq(n2.prev, TODO, "What is the `prev` node of n2?");
-    cr_assert_eq(n2.next, TODO, "What is the `next` node of n2?");
+    cr_assert_eq(n2.prev, &n1, "What is the `prev` node of n2?");
+    cr_assert_eq(n2.next, &n3, "What is the `next` node of n2?");
 }
 
 int main(void)
