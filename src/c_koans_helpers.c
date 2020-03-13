@@ -151,5 +151,10 @@ void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
 
 void cr_assert_file_contents_eq_str(FILE *f, char *expected)
 {
+    (void)*f; /* unused */
     // TODO see https://stackoverflow.com/a/35249468/104143
+    puts("");
+    puts("> expected lines: ---");
+    puts(expected);
+    puts("> ---");
 }
