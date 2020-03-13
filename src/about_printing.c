@@ -85,7 +85,10 @@ static void about_io_printf(void** state)
     printf("unsinged int: %u\n", i);
     printf("hexadecimal unsigned int: %x\n", i);
     printf("float: %f\n", d);
-    printf("long: %lld\n", l);
+    /* printf("long: %I64d\n", l); = long long int */
+    /* https://stackoverflow.com/a/13590809/104143 */
+    /* printf("long: %lld\n", l); = long long int */
+    printf("long: %ld\n", l);
     printf("pointer: %p\n", p);
 #endif
     cr_assert_file_contents_eq_str(stdout,
