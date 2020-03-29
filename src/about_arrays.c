@@ -27,7 +27,8 @@ static void about_arrays_what_is_an_array(void** state)
     /* Change this to: 'cr_assert_not_null' */
     cr_assert_null(array,
         "An array declared in this way is a label meaning "
-        "it has an address");
+        "it has an address %p",
+        array);
 
     /*
      * An array variable's name is merely a label for the address of the first
