@@ -29,9 +29,11 @@ static void about_basics_intro(void** state)
         the input as an int
     */
     cr_assert(false == 0,
-        "In C there is no false, there is only zero. false is in fact: 0");
+        "In C there is no false, there is only zero. false is in fact: %d",
+        false);
     cr_assert(true == 1,
-        "In C there is no true, there is only not zero. true is in fact: 1");
+        "In C there is no true, there is only not zero. true is in fact: %d",
+        true);
     /*
         cmocka has more descriptive tests that can evaluate the same thing
     */

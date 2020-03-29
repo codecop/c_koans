@@ -4,64 +4,85 @@
 
 #include <cmocka.h>
 
-#include <stdio.h> /* puts in asserts */
+#include <stdio.h> /* printf in asserts */
 #include <stdlib.h> /* abs in asserts */
-
+#include <string.h> /* strcmp in asserts */
 /*
  * Adapter macros to use cmocka instead of Criterion.
  */
 
-#define cr_assert(state, message)                                              \
+#define cr_assert(state, ...)                                                  \
     if (!(state)) {                                                            \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_true((state));                                                  \
     }
 
-#define cr_assert_eq(expected, actual, message)                                \
+#define cr_assert_eq(expected, actual, ...)                                    \
     if ((expected) != (actual)) {                                              \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_int_equal((expected), (actual));                                \
     }
 // this is also used ptr_equal, gives warnings
 
-#define cr_assert_not_eq(expected, actual, message)                            \
+#define cr_assert_not_eq(expected, actual, ...)                                \
     if ((expected) == (actual)) {                                              \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_int_not_equal((expected), (actual));                            \
     }
 
-#define cr_assert_gt(larger, smaller, message)                                 \
+#define cr_assert_gt(larger, smaller, ...)                                     \
     if ((larger) <= (smaller)) {                                               \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_true((larger) > (smaller));                                     \
     }
 
-#define cr_assert_float_eq(expected, actual, eps, message)                     \
+#define cr_assert_float_eq(expected, actual, eps, ...)                         \
     if (abs((expected) - (actual)) > (eps)) {                                  \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_float_equal((expected), (actual), (eps));                       \
     }
 
-#define cr_assert_null(actual, message)                                        \
+#define cr_assert_null(actual, ...)                                            \
     if ((actual) != NULL) {                                                    \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_null((actual));                                                 \
     }
 
-#define cr_assert_not_null(actual, message)                                    \
+#define cr_assert_not_null(actual, ...)                                        \
     if ((actual) == NULL) {                                                    \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_non_null((actual));                                             \
     }
 
-#define cr_assert_str_eq(expected, actual, message)                            \
+#define cr_assert_str_eq(expected, actual, ...)                                \
     if (strcmp((expected), (actual)) != 0) {                                   \
-        puts((message));                                                       \
+        printf(__VA_ARGS__);                                                   \
+        printf("\n");                                                          \
         assert_string_equal((expected), (actual));                             \
     }
 
-void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[],
-    size_t array_size, int (*string_compare)(const void *, const void *),
-    char *message);
+#define cr_assert_arr_eq_cmp(                                                  \
+    expected, actual, array_size, string_compare, ...)                         \
+    for (unsigned int _i_xyz = 0; _i_xyz < (array_size); _i_xyz++) {           \
+        if ((string_compare)(&(expected)[_i_xyz], &(actual)[_i_xyz]) != 0) {   \
+            printf(__VA_ARGS__);                                               \
+            printf("\n");                                                      \
+            fail();                                                            \
+            break;                                                             \
+        }                                                                      \
+    }
 
-void cr_assert_file_contents_eq_str(FILE *_File, char *expected);
+#define cr_assert_file_contents_eq_str(file, expected)                         \
+    printf("\n");                                                              \
+    printf("> expected lines: ---\n");                                         \
+    printf((expected));                                                        \
+    printf("\n");                                                              \
+    printf("> ---\n");
+// TODO see https://stackoverflow.com/a/35249468/104143
