@@ -6,7 +6,7 @@
 
 #include <stdio.h> /* printf in asserts */
 #include <stdlib.h> /* abs in asserts */
-
+#include <string.h> /* strcmp in asserts */
 /*
  * Adapter macros to use cmocka instead of Criterion.
  */
@@ -68,20 +68,21 @@
         assert_string_equal((expected), (actual));                             \
     }
 
-void cr_assert_arr_eq_cmp(char *sorted_names[], char *names[],
-    size_t array_size, int (*string_compare)(const void *, const void *),
-    char *message);
+#define cr_assert_arr_eq_cmp(                                                  \
+    expected, actual, array_size, string_compare, ...)                         \
+    for (unsigned int _i_xyz = 0; _i_xyz < (array_size); _i_xyz++) {           \
+        if ((string_compare)(&(expected)[_i_xyz], &(actual)[_i_xyz]) != 0) {   \
+            printf(__VA_ARGS__);                                               \
+            printf("\n");                                                      \
+            fail();                                                            \
+            break;                                                             \
+        }                                                                      \
+    }
 
-// void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
-//     int (*string_compare)(const void *, const void *), char *message)
-// {
-//     for (unsigned int i = 0; i < array_size; i++) {
-//         if (string_compare(&expected[i], &actual[i]) != 0) {
-//             puts(message);
-//             fail();
-//             break;
-//         }
-//     }
-// }
-
-void cr_assert_file_contents_eq_str(FILE *_File, char *expected);
+#define cr_assert_file_contents_eq_str(file, expected)                         \
+    printf("\n");                                                              \
+    printf("> expected lines: ---\n");                                         \
+    printf((expected));                                                        \
+    printf("\n");                                                              \
+    printf("> ---\n");
+// TODO see https://stackoverflow.com/a/35249468/104143

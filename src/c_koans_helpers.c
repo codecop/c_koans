@@ -136,25 +136,3 @@ int make_person_better(
         or failure. On our VM they are 0 and 1 respectively.
     */
 }
-
-void cr_assert_arr_eq_cmp(char *expected[], char *actual[], size_t array_size,
-    int (*string_compare)(const void *, const void *), char *message)
-{
-    for (unsigned int i = 0; i < array_size; i++) {
-        if (string_compare(&expected[i], &actual[i]) != 0) {
-            puts(message);
-            fail();
-            break;
-        }
-    }
-}
-
-void cr_assert_file_contents_eq_str(FILE *f, char *expected)
-{
-    (void)*f; /* unused */
-    // TODO see https://stackoverflow.com/a/35249468/104143
-    puts("");
-    puts("> expected lines: ---");
-    puts(expected);
-    puts("> ---");
-}
