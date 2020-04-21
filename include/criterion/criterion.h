@@ -79,10 +79,57 @@
         }                                                                      \
     }
 
+static FILE *__original;
+static char *__fileName;
+static FILE *__captured;
+static long __startPos;
+
+#define READ_BUFFER 1000
+static char __readBuffer[READ_BUFFER];
+
+static int captureStdOut(void **state)
+{
+    (void)state; /* unused */
+
+    __original = stdout;
+    __fileName = tmpnam(NULL);
+    __captured = freopen(__fileName, "wb+", stdout);
+    __startPos = 0;
+
+    return 0;
+}
+
+static void getStdOut(FILE *file)
+{
+    if (file == stdout) {
+        fflush(__captured);
+
+        long next = ftell(__captured);
+        fseek(__captured, __startPos, SEEK_SET);
+        /* fprintf(stderr, "current startpos %d\n", __startPos); */
+
+        memset(__readBuffer, 0, READ_BUFFER);
+        fread(__readBuffer, sizeof(char), READ_BUFFER, __captured);
+        /* fprintf(stderr, "read %s\n", __readBuffer); */
+
+        __startPos = next;
+        fseek(__captured, __startPos, SEEK_SET);
+        /* fprintf(stderr, "next startpos %d\n", __startPos); */
+
+    } else if (file == stderr) {
+    }
+}
+
+static int resetStdOut(void **state)
+{
+    (void)state; /* unused */
+
+    fclose(__captured);
+    remove(__fileName);
+
+    return 0;
+}
+
 #define cr_assert_file_contents_eq_str(file, expected)                         \
-    printf("\n");                                                              \
-    printf("> expected lines: ---\n");                                         \
-    printf((expected));                                                        \
-    printf("\n");                                                              \
-    printf("> ---\n");
-// TODO see https://stackoverflow.com/a/35249468/104143
+    getStdOut(file);                                                           \
+    cr_assert_str_eq(expected, __readBuffer, " File contents");
