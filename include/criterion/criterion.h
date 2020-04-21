@@ -79,7 +79,7 @@
         }                                                                      \
     }
 
-static FILE *__original;
+static FILE __original;
 static char *__fileName;
 static FILE *__captured;
 static long __startPos;
@@ -91,7 +91,7 @@ static int captureStdOut(void **state)
 {
     (void)state; /* unused */
 
-    __original = stdout;
+    __original = *stdout;
     __fileName = tmpnam(NULL);
     __captured = freopen(__fileName, "wb+", stdout);
     __startPos = 0;
