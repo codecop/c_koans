@@ -82,7 +82,7 @@ static void about_io_printf(void** state)
 
     printf("char: %c\n", c);
     printf("int: %d\n", i);
-    printf("unsinged int: %u\n", i);
+    printf("unsigned int: %u\n", i);
     printf("hexadecimal unsigned int: %x\n", i);
     printf("float: %f\n", d);
     /* printf("long: %I64d\n", l); = long long int */
@@ -93,7 +93,7 @@ static void about_io_printf(void** state)
 #endif
     cr_assert_file_contents_eq_str(stdout,
         "char: J\nint: -1\nunsigned int: 4294967295\nhexadecimal unsigned int: "
-        "ffffffff\nfloat: 3.140000\nlong: 3735928559\npointer: 0x400\n");
+        "ffffffff\nfloat: 3.140000\nlong: 3735928559\npointer: 00000400\n");
 }
 
 int main(void)
