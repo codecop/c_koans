@@ -158,9 +158,9 @@ int main(void)
 {
     const struct CMUnitTest test_suite[] = {
         cmocka_unit_test(about_io_streams), /* */
-        cmocka_unit_test(about_io_using_streams), /* */
+        cmocka_unit_test_setup_teardown(about_io_using_streams, captureStdOut, resetStdOut), /* */
         cmocka_unit_test(about_io_file_io), /* */
-        cmocka_unit_test(about_io_buffered_io), /* */
+        cmocka_unit_test_setup_teardown(about_io_buffered_io, captureStdOut, resetStdOut), /* */
     };
 
     return cmocka_run_group_tests(test_suite, NULL, NULL);

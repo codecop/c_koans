@@ -88,7 +88,7 @@ static void about_io_printf(void** state)
     /* printf("long: %I64d\n", l); = long long int */
     /* https://stackoverflow.com/a/13590809/104143 */
     /* printf("long: %lld\n", l); = long long int */
-    printf("long: %ld\n", l);
+    printf("long: %lu\n", l); /* fixed - no %ld! */
     printf("pointer: %p\n", p);
 #endif
     cr_assert_file_contents_eq_str(stdout,
@@ -99,8 +99,8 @@ static void about_io_printf(void** state)
 int main(void)
 {
     const struct CMUnitTest test_suite[] = {
-        cmocka_unit_test(about_printing_basic_printing), /* */
-        cmocka_unit_test(about_io_printf), /* */
+        cmocka_unit_test_setup_teardown(about_printing_basic_printing, captureStdOut, resetStdOut), /* */
+        cmocka_unit_test_setup_teardown(about_io_printf, captureStdOut, resetStdOut), /* */
     };
 
     return cmocka_run_group_tests(test_suite, NULL, NULL);
