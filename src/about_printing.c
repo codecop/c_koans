@@ -1,6 +1,8 @@
 #include "c_koans.h"
 #include <stdio.h>
 
+#include "x86_x64.h"
+
 /*
     This series of koans will go over topics not entirely specific to the C
     language itself, but is an essential topic for writing more-than-trivial
@@ -93,7 +95,7 @@ static void about_io_printf(void** state)
 #endif
     cr_assert_file_contents_eq_str(stdout,
         "char: J\nint: -1\nunsigned int: 4294967295\nhexadecimal unsigned int: "
-        "ffffffff\nfloat: 3.140000\nlong: 3735928559\npointer: 00000400\n");
+        "ffffffff\nfloat: 3.140000\nlong: 3735928559\npointer: " UPTR_STRING "\n");
 }
 
 int main(void)
