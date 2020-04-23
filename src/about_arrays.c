@@ -1,8 +1,7 @@
 #include "c_koans.h"
 #include <stdlib.h>
 
-#include <stdint.h>
-#define UPTR (UINTPTR_MAX > 0xffffffffU ? 8U : 4U)
+#include "x86_x64.h"
 
 void func(int *array)
 {

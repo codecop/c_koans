@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <strings.h>
 
-#include <stdint.h>
-#define UPTR (UINTPTR_MAX > 0xffffffffU ? 8U : 4U)
+#include "x86_x64.h"
 
 /*
     We have used functions from string.h, for more information take a
